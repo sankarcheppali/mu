@@ -26,11 +26,14 @@ install_requires = [
     # which are needed for the main editor to function.
     #
     "PyQt5==5.15.10"
-    + ';"arm" not in platform_machine and "aarch" not in platform_machine',
+    + '; sys_platform != "linux" '
+    + 'or ("arm" not in platform_machine and "aarch" not in platform_machine)',
     "QScintilla==2.14.1"
-    + ';"arm" not in platform_machine and "aarch" not in platform_machine',
+    + '; sys_platform != "linux" '
+    + 'or ("arm" not in platform_machine and "aarch" not in platform_machine)',
     "PyQtChart==5.15.6"
-    + ';"arm" not in platform_machine and "aarch" not in platform_machine',
+    + '; sys_platform != "linux" '
+    + 'or ("arm" not in platform_machine and "aarch" not in platform_machine)',
     # ipykernel has to be < v6 for macOS 10.13 compatibility (v6 depends on
     # debugpy package), v5.5.6 resolves issue ipython/ipykernel#759.
     # Full line can be removed after Mu v1.3 release as PyQt6 drops old macOS.
